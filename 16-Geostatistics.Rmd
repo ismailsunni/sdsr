@@ -43,7 +43,7 @@ to the right encoding using the `dos2unix` command line utility.
 
 In the following, we will read all the files into a list,
 ```{r}
-files = list.files("aq", pattern = "*.csv", full.names = TRUE)
+files = list.files("aq", pattern = "*timeseries.csv", full.names = TRUE)
 r = lapply(files[-1], function(f) read.csv(f))
 ```
 then convert the time variable into a `POSIXct` variable, and time order them
