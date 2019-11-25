@@ -168,7 +168,7 @@ ggplot() + geom_sf(data = nc2, aes(fill = SID)) + facet_wrap(~VAR, ncol = 1) +
   theme(panel.grid.major = element_line(color = "white"))
 ```
 An interactive, leaflet-type map is obtained by
-```{r}
+```{r eval=FALSE}
 suppressPackageStartupMessages(library(mapview))
 nc.32119 %>% mapview(zcol = "BIR74", legend = TRUE, col.regions = sf.colors)
 ```
