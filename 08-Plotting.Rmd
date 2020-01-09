@@ -21,7 +21,7 @@ the cases where we think we "do nothing" (figure \@ref(fig:world),
 left), or where show the world "as it is", e.g. as seen from space
 (figure \@ref(fig:world), right).
 
-```{r world,fig.cap="Earth country boundaries; left: mapping long/lat to x and y; right: as seen from space", fig=TRUE,echo=FALSE,message=FALSE}
+```{r world,fig.cap="Earth country boundaries; left: mapping long/lat to x and y; right: as seen from space", fig=TRUE,echo=FALSE,message=FALSE,eval=FALSE}
 library(sf)
 library(rnaturalearth)
 w <- ne_countries(scale = "medium", returnclass = "sf")
@@ -69,7 +69,7 @@ w <- ne_countries(scale = "medium", returnclass = "sf")
 plot(st_geometry(w))
 ```
 and we see that this is the default projection for data with geodetic coordinates, as indicated by
-```{r}
+```{r eval=FALSE}
 st_crs(w)
 ```
 
@@ -84,6 +84,8 @@ We can also carry out this projection before plotting. Say we want to
 do this for Germany, then after loading the (rough) country outline,
 we use `st_transform` to project:
 ```{r}
+library(sf)
+library(rnaturalearth)
 DE = st_geometry(ne_countries(country = "germany", returnclass = "sf"))
 DE.eqc = st_transform(DE, "+proj=eqc +lat_ts=51.14 +lon_0=90w")
 ```
